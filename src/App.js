@@ -1,23 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
+import Header from "./components/Header";
+import AddProjectForm from "./components/AddProject";
+import ProjectList from "./components/ProjectList";
+import SearchBar from "./components/SearchBar";
 
 function App() {
+  const [projects, setProjects] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const addProject = (project) => {
+    setProjects([...projects, project]);
+  };
+
+  const filteredProjects = projects.filter((p) =>
+    p.title.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <Header />
+      <AddProjectForm addProject={addProject} />
+      <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+      <ProjectList projects={filteredProjects} />
     </div>
   );
 }

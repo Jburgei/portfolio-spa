@@ -1,8 +1,20 @@
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import { render, screen } from "@testing-library/react";
+import App from "./App";
 
-test('renders learn react link', () => {
+test("renders the app header", () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  const heading = screen.getByText(/personal project showcase app/i);
+  expect(heading).toBeInTheDocument();
+});
+
+test("renders the Add Project section", () => {
+  render(<App />);
+  const addProjectTitle = screen.getByText(/add project/i);
+  expect(addProjectTitle).toBeInTheDocument();
+});
+
+test("renders the search input", () => {
+  render(<App />);
+  const searchInput = screen.getByPlaceholderText(/search projects/i);
+  expect(searchInput).toBeInTheDocument();
 });
