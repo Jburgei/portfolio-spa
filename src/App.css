@@ -1,42 +1,166 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+/* RESET */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+/* ========== BASE APP ========== */
+.app {
+  min-height: 100vh;
+  width: 100vw;
+
+  background: linear-gradient(135deg, #2f80ff, #0a1f44);
+  color: #eaf2ff;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* ========== LAYOUT CONTAINER ========== */
+.container {
+  width: min(900px, 92%);
+  margin-top: 40px;
+  display: grid;
+  gap: 22px;
+}
+
+/* ========== HEADER ========== */
+.header {
   text-align: center;
+  padding: 30px 0 10px;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.header h1 {
+  font-size: clamp(2rem, 3vw, 3rem);
+  font-weight: 800;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
+/* ========== CARDS ========== */
 .card {
-  padding: 2em;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(173, 216, 255, 0.4);
+  border-radius: 16px;
+  padding: 20px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
 }
 
-.read-the-docs {
-  color: #888;
+/* ========== SECTION TITLES ========== */
+.section-title {
+  text-align: center;
+  margin: 6px 0 16px;
+  font-size: 1.4rem;
+}
+
+/* ========== FORM ROW ========== */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: 12px;
+}
+
+/* ========== INPUTS ========== */
+input {
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(173, 216, 255, 0.5);
+  color: #eaf2ff;
+  padding: 12px 14px;
+  border-radius: 12px;
+  outline: none;
+  font-size: 0.95rem;
+}
+
+input::placeholder {
+  color: #cfe2ff;
+}
+
+input:focus {
+  border-color: #ffffff;
+}
+
+/* ========== BUTTONS ========== */
+button,
+.btn {
+  background: linear-gradient(135deg, #4da3ff, #1e5fd8);
+  border: none;
+  color: white;
+  padding: 12px 18px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 700;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+button:hover,
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 12px rgba(77, 163, 255, 0.8);
+}
+
+/* ========== SEARCH ========== */
+.search {
+  display: flex;
+  justify-content: center;
+}
+
+.search input {
+  width: min(400px, 100%);
+}
+
+/* ========== PROJECT LIST ========== */
+.project-list {
+  display: grid;
+  gap: 14px;
+}
+
+/* ========== PROJECT CARD ========== */
+.project-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(173, 216, 255, 0.4);
+  border-radius: 14px;
+  padding: 16px;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 18px rgba(77, 163, 255, 0.7);
+}
+
+/* ========== PROJECT TEXT ========== */
+.project-title {
+  margin: 0 0 6px;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.project-desc {
+  margin: 0;
+  opacity: 0.9;
+}
+
+/* ========== EMPTY STATE ========== */
+.empty {
+  text-align: center;
+  opacity: 0.85;
+  font-size: 1.1rem;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 720px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .header h1 {
+    font-size: 2rem;
+  }
 }
